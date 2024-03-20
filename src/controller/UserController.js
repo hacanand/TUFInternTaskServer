@@ -1,4 +1,5 @@
 const UserRepository = require("../repository/UserRepository");
+const { redis }= require("../config/redis");
 const axios = require("axios");
 
 const userRepository = new UserRepository();

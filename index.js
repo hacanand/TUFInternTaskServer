@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+require('./src/models/index');
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 const ApiRoutes = require('./src/routes/index');
