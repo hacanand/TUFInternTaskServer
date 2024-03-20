@@ -1,7 +1,7 @@
 import { Redis } from 'ioredis';
 const getRedisUrl = () => {
-    if (process.env.VITE_APP_REDIS_URL) {
-      return new Redis(process.env.VITE_APP_REDIS_URL);
+    if (process.env.REDIS_URL) {
+      return new Redis(process.env.REDIS_URL);
     }
     throw new Error('REDIS_URL is not defined');
 }

@@ -16,7 +16,6 @@ module.exports = (sequelize, DataTypes) => {
   User.init({
 
     user_name: DataTypes.STRING,
-
     code_language: DataTypes.STRING,
     stdin: DataTypes.STRING,
     stdout: {

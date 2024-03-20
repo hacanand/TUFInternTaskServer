@@ -1,10 +1,16 @@
 const express = require('express');
 const app = express();
 const dotenv = require('dotenv');
+const bodyParser = require('body-parser');
 const ApiRoutes = require('./src/routes/index');
+const morgan = require('morgan');
+const cors = require('cors');
 dotenv.config();
-const PORT = process.env.VITE_APP_PORT || 3005;
-
+const PORT = process.env.PORT || 3005;
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(morgan('dev'));
+app.use(cors());
 app.get('/', (req, res) => {
     res.send('Hello World');
 });
