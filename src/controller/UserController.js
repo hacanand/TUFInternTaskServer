@@ -17,7 +17,7 @@ const create = async (req, res) => {
       "javaScript": "93",
     };
     const language_id = language_data[code_language];
-    console.log(language_id );
+    
     const options = {
       method: "POST",
       url: "https://judge0-ce.p.rapidapi.com/submissions",
@@ -40,8 +40,7 @@ const create = async (req, res) => {
 
     try {
       const response = await axios.request(options);
-      const token = response.data.token;
-      console.log(token);
+      const token = response.data.token.JSON.stringify();
   if (!token) {
     res.status(500).json({ message: "Error in token" });
   } else {
@@ -60,9 +59,9 @@ const create = async (req, res) => {
 
     try {
       const response = await axios.request(options);
-      const stdout = response.data.status.description;
+      const stdout = response.data.status.description.JSON.stringify();
       const { user_name, code_language, stdin, source_code } = req.body;
-      console.log(user_name, code_language, stdin, source_code, stdout);
+      // console.log(user_name, code_language, stdin, source_code, stdout);
       const data = await userRepository.create(
        { user_name,
         code_language,
