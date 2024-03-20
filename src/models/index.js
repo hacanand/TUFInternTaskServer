@@ -6,7 +6,8 @@ const sequelize = new Sequelize(process.env.DATABASE_NAME, process.env.USER, pro
  
 try {
    sequelize.authenticate();
-  console.log("Connection has been established successfully.");
+ // console.log("Connection has been established successfully.");
 } catch (error) {
-  console.error("Unable to connect to the database:", error);
+  throw error;
+ // console.error("Unable to connect to the database:", error);
 }
